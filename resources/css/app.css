@@ -1,3 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Spice Route Restaurant - Custom Application Styles */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.table-responsive {
+    border-radius: 0.375rem;
+}
