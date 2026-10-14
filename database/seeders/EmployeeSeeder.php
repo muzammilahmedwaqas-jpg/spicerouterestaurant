@@ -12,6 +12,18 @@ class EmployeeSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $faker = Faker::create();
+        $shiftIds = Shift::pluck('id')->toArray();
+
+        for ($i = 0; $i < 12; $i++) {
+            Employee::create([
+                'shift_id' => $faker->randomElement($shiftIds),
+                'first_name' => $faker->firstName,
+                'last_name' => $faker->lastName,
+                'email' => $faker->unique()->safeEmail,
+                'phone' => $faker->phoneNumber,
+                'designation' => $faker->jobTitle,
+                'joining_date' => $faker->date(),
+            ]);
     }
 }
