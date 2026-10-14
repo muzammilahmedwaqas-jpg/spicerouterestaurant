@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Employee;
+use App\Models\Shift;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class EmployeeSeeder extends Seeder
 {
@@ -25,5 +28,6 @@ class EmployeeSeeder extends Seeder
                 'designation' => $faker->jobTitle,
                 'joining_date' => $faker->date(),
             ]);
+        }
     }
 }

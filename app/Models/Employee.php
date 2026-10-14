@@ -25,8 +25,3 @@ class Employee extends Model
         return $this->belongsTo(Shift::class);
     }
 }
-
-class Employee extends Model
-{
-    //
-}
