@@ -14,21 +14,34 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Navigation Links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('dashboard') ? 'active fw-semibold' : '' }}" href="{{ route('dashboard') }}">
-                        <i class="bi bi-speedometer2 me-1"></i> {{ __('Dashboard') }}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('shifts.*') ? 'active fw-semibold' : '' }}" href="{{ route('shifts.index') }}">
-                        <i class="bi bi-clock-history me-1"></i> {{ __('Shifts') }}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('employees.*') ? 'active fw-semibold' : '' }}" href="{{ route('employees.index') }}">
-                        <i class="bi bi-people me-1"></i> {{ __('Employees') }}
-                    </a>
-                </li>
+                @if (Auth::user()->role === 'manager')
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('dashboard') ? 'active fw-semibold' : '' }}" href="{{ route('dashboard') }}">
+                            <i class="bi bi-speedometer2 me-1"></i> {{ __('Dashboard') }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('shifts.*') ? 'active fw-semibold' : '' }}" href="{{ route('shifts.index') }}">
+                            <i class="bi bi-clock-history me-1"></i> {{ __('Shifts') }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('employees.*') ? 'active fw-semibold' : '' }}" href="{{ route('employees.index') }}">
+                            <i class="bi bi-people me-1"></i> {{ __('Employees') }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin.leaves*') ? 'active fw-semibold' : '' }}" href="{{ route('admin.leaves') }}">
+                            <i class="bi bi-calendar-check me-1"></i> {{ __('Leave Requests') }}
+                        </a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('staff.dashboard') ? 'active fw-semibold' : '' }}" href="{{ route('staff.dashboard') }}">
+                            <i class="bi bi-person-badge me-1"></i> {{ __('Staff Portal') }}
+                        </a>
+                    </li>
+                @endif
             </ul>
 
             <!-- Settings / User Dropdown -->
@@ -37,10 +50,16 @@
                     <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="badge bg-secondary rounded-circle p-2"><i class="bi bi-person-fill"></i></span>
                         <span>{{ Auth::user()->name }}</span>
+                        <span class="badge {{ Auth::user()->role === 'manager' ? 'bg-danger' : 'bg-primary' }} text-uppercase" style="font-size: 0.65rem;">
+                            {{ Auth::user()->role }}
+                        </span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2">
                         <li>
-                            <h6 class="dropdown-header">{{ Auth::user()->email }}</h6>
+                            <h6 class="dropdown-header">
+                                <div class="fw-bold">{{ Auth::user()->name }}</div>
+                                <div class="text-muted small">{{ Auth::user()->email }}</div>
+                            </h6>
                         </li>
                         <li><hr class="dropdown-divider"></li>
                         <li>

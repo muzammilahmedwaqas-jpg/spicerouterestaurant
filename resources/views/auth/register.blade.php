@@ -32,12 +32,22 @@
         </div>
 
         <!-- Confirm Password -->
-        <div class="mb-4">
+        <div class="mb-3">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
             <x-text-input id="password_confirmation"
                             type="password"
                             name="password_confirmation" required autocomplete="new-password" placeholder="••••••••" />
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-1" />
+        </div>
+
+        <!-- Role -->
+        <div class="mb-4">
+            <x-input-label for="role" :value="__('Account Role')" />
+            <select id="role" name="role" class="form-select border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                <option value="manager" {{ old('role') === 'manager' ? 'selected' : '' }}>Manager (Full Admin Access)</option>
+                <option value="staff" {{ old('role') === 'staff' ? 'selected' : '' }}>Staff (Portal & Attendance)</option>
+            </select>
+            <x-input-error :messages="$errors->get('role')" class="mt-1" />
         </div>
 
         <div class="d-grid mb-3">

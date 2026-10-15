@@ -31,6 +31,9 @@
                         <a href="{{ route('employees.create') }}" class="btn btn-outline-primary fw-semibold">
                             <i class="bi bi-person-plus me-1"></i> Add New Employee
                         </a>
+                        <a href="{{ route('admin.leaves') }}" class="btn btn-outline-danger fw-semibold">
+                            <i class="bi bi-calendar-check me-1"></i> Leave Requests
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-4 text-center d-none d-lg-block">
@@ -45,7 +48,7 @@
     <!-- Quick Navigation Cards -->
     <div class="row g-4">
         <!-- Shifts Card -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-3">
             <div class="card shadow-sm border-0 h-100 rounded-3">
                 <div class="card-body p-4 d-flex flex-column">
                     <div class="d-flex align-items-center justify-content-between mb-3">
@@ -54,9 +57,9 @@
                         </div>
                         <span class="badge bg-light text-secondary border">Schedules</span>
                     </div>
-                    <h5 class="fw-bold text-dark mb-1">Shifts Management</h5>
+                    <h5 class="fw-bold text-dark mb-1">Shifts</h5>
                     <p class="text-muted small flex-grow-1">
-                        Configure morning, evening, and night duty shifts with defined operating hours and monitor staff allocations.
+                        Configure morning, evening, and night duty shifts with defined operating hours.
                     </p>
                     <a href="{{ route('shifts.index') }}" class="btn btn-outline-primary w-100 mt-2 fw-semibold">
                         View Shifts <i class="bi bi-arrow-right ms-1"></i>
@@ -66,7 +69,7 @@
         </div>
 
         <!-- Employees Card -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-3">
             <div class="card shadow-sm border-0 h-100 rounded-3">
                 <div class="card-body p-4 d-flex flex-column">
                     <div class="d-flex align-items-center justify-content-between mb-3">
@@ -75,9 +78,9 @@
                         </div>
                         <span class="badge bg-light text-secondary border">Team</span>
                     </div>
-                    <h5 class="fw-bold text-dark mb-1">Employee Directory</h5>
+                    <h5 class="fw-bold text-dark mb-1">Employees</h5>
                     <p class="text-muted small flex-grow-1">
-                        View staff directory, assign designations (Chefs, Waiters, Managers), link shifts, and track joining dates.
+                        Manage staff directory, designations (Chefs, Waiters), link shifts, and track joining dates.
                     </p>
                     <a href="{{ route('employees.index') }}" class="btn btn-outline-success w-100 mt-2 fw-semibold">
                         View Employees <i class="bi bi-arrow-right ms-1"></i>
@@ -86,8 +89,29 @@
             </div>
         </div>
 
+        <!-- Leave Requests Card -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card shadow-sm border-0 h-100 rounded-3">
+                <div class="card-body p-4 d-flex flex-column">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="p-3 bg-warning-subtle text-warning rounded-3 fs-4">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+                        <span class="badge bg-light text-secondary border">Requests</span>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Leave Requests</h5>
+                    <p class="text-muted small flex-grow-1">
+                        Review pending leave requests from staff members, approve or reject applications.
+                    </p>
+                    <a href="{{ route('admin.leaves') }}" class="btn btn-outline-warning w-100 mt-2 fw-semibold">
+                        Manage Leaves <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <!-- Profile Card -->
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-3">
             <div class="card shadow-sm border-0 h-100 rounded-3">
                 <div class="card-body p-4 d-flex flex-column">
                     <div class="d-flex align-items-center justify-content-between mb-3">
@@ -96,9 +120,9 @@
                         </div>
                         <span class="badge bg-light text-secondary border">Security</span>
                     </div>
-                    <h5 class="fw-bold text-dark mb-1">Account & Settings</h5>
+                    <h5 class="fw-bold text-dark mb-1">Account</h5>
                     <p class="text-muted small flex-grow-1">
-                        Manage your account profile information, update your security password, and review access preferences.
+                        Manage your account profile details, change security password, and preferences.
                     </p>
                     <a href="{{ route('profile.edit') }}" class="btn btn-outline-secondary w-100 mt-2 fw-semibold">
                         Edit Profile <i class="bi bi-arrow-right ms-1"></i>
