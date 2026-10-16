@@ -5,6 +5,7 @@ use App\Http\Controllers\ShiftController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\LeaveRequestController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -33,6 +34,8 @@ Route::middleware(['auth', 'verified', 'manager'])->group(function () {
     Route::resource('employees', EmployeeController::class);
     Route::get('/admin/leaves', [LeaveRequestController::class, 'adminIndex'])->name('admin.leaves');
     Route::patch('/admin/leaves/{leave}', [LeaveRequestController::class, 'updateStatus'])->name('admin.leaves.update');
+    Route::get('admin/summary', [ReportController::class, 'monthlySummary'])->name('admin.summary');
+    Route::get('admin/summary/export', [ReportController::class, 'exportCsv'])->name('admin.summary.export');
 });
 
 require __DIR__.'/auth.php';
