@@ -35,4 +35,4 @@ Route::middleware(['auth', 'verified', 'manager'])->group(function () {
     Route::patch('/admin/leaves/{leave}', [LeaveRequestController::class, 'updateStatus'])->name('admin.leaves.update');
 });
 
-require _DIR_.'/auth.php';
+require __DIR__.'/auth.php';
