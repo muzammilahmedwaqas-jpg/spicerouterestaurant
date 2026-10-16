@@ -35,6 +35,11 @@
                             <i class="bi bi-calendar-check me-1"></i> {{ __('Leave Requests') }}
                         </a>
                     </li>
+                    <li>
+                         <a class="nav-link {{ request()->routeIs('admin.summary*') ? 'active fw-semibold' : '' }}" href="{{ route('admin.summary') }}">
+                             <i class="bi bi-bar-chart-line me-1"></i> {{ __('Summary') }}
+                        </a>
+                    </li>
                 @else
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('staff.dashboard') ? 'active fw-semibold' : '' }}" href="{{ route('staff.dashboard') }}">
